@@ -1,0 +1,212 @@
+{% extends 'polls\base.html' %}
+
+
+{% block title %} Заявление на поступление {% endblock %}
+
+{% block content %}
+{% load static %}
+<p class="center_text"> Электронное заявление на поступление</p>
+
+<p>Заполните форму ниже от имени ребёнка до 15.07.2021. Дату прохождения тестирования для поступления в школу администрация объявит 21.07.2021. </p>
+<p>Необязательные поля помечены (Н).</p>
+<br>
+<form  id="form" method="post" action= "{% url 'form' %}">
+	<div>
+		<label id="name">Имя:  <input type="text" name="studentName"  id="studentName" required></label>
+		
+	</div>
+	<div>
+		<label id="surname">Фамилия:  <input type="text" name="studentSurname" id="studentSurname" required></label>
+	</div>
+	<div>
+		<label id="fname">Отчество:  <input type="text" name="studentFathersName" id="studentFathersName" required></label>
+	</div>
+	<div>
+		<label id="address">Адрес:  <input type="text" name="studentAddress" id="studentAddress" required></label>
+	</div>
+	<div>
+		<label id="date">Дата рождения:  <input type="date" name="studentDate" id="studentDate" required></label>
+	</div>
+	<div>
+		<label id="phone">Телефон (Н):  <input type="tel" name="studentPhone" id="studentPhone" placeholder="380" required /></label>
+	</div>
+	<div>
+		<label id="email">Email:  <input type="email" name="studentEmail" id="studentEmail"></label>
+	</div>
+	<div>
+		<p>Класс, в который поступаете: </p>
+		<select id="grades" name="grades" required> 
+			<option value="1"> 1 </option>
+			<option value="2"> 2 </option>
+			<option value="3"> 3 </option>
+			<option value="4"> 4 </option>
+			<option value="5"> 5 </option>
+			<option value="6"> 6 </option>
+			<option value="7"> 7 </option>
+			<option value="8"> 8 </option>
+			<option value="9"> 9 </option>
+			<option value="10"> 10 </option>
+			<option value="11"> 11 </option>
+
+		</select>
+	</div>
+
+	<br>
+	<div> 
+		<input type="submit" name="submit" id="submit" value="Отправить" onclick="valid(document.getElementById('form'))"/>
+		<button name = "reset" id = "reset" type="reset">Очистить всё</button>
+	</div>
+</form>
+
+<!--JS-code-->
+    <script type="text/javascript"  >
+
+    	function closePopup(el) {
+    		var popup = document.getElementById('popup');
+    		popup.classList.add('close');
+    	}
+		var phone = document.getElementById('studentPhone');
+
+		if(phone != null){
+			phone.addEventListener("blur", validTel);
+		}
+
+		function valid (form){
+			var fail = false;
+
+			var name = form.studentName.value;
+			var labName = document.getElementById('name');
+			if (name == "" || name ==" "){
+				labName.classList.add('error');
+				fail = true;
+			}
+			else {
+				labName.classList.remove('error');
+			}
+
+			var surname = form.studentSurname.value;
+			var labSurname = document.getElementById('surname');
+			if (surname == "" || surname==" "){
+				labSurname.classList.add('error');
+				fail = true;
+
+			} else {
+				labSurname.classList.remove('error');
+			}
+
+
+			var sname = form.studentSecondName.value;
+			var labSname = document.getElementById('fname');
+			if (fname == "" || fname==" "){
+				labSname.classList.add('error');
+				fail = true;
+			} else {
+				labSname.classList.remove('error');
+			}
+
+			var address = form.studentAddress.value;
+			var labAddress = document.getElementById('address');
+			if (address == "" || address==" "){
+				labAddress.classList.add('error');
+				fail = true;
+			} else {
+				labAddress.classList.remove('error');
+			}
+
+			var date = form.studentDate.value;
+			var labDate = document.getElementById('date');
+			if (date == "" || date==" "){
+				labDate.classList.add('error');
+				fail = true;
+			} else {
+				labDate.classList.remove('error');
+			}
+
+			var email = form.studentEmail.value;
+			var labEmail = document.getElementById('email');
+
+			var p = document.createElement("small");
+			p.id = 'errorText';
+			var adr_pattern = /[0-9a-z_-]+@[0-9a-z_-]+\.[a-z]{2,5}/i;
+			if(email =="" || email ==" "){
+				labEmail.classList.add('error');
+				fail = true;
+			}
+
+			else if (adr_pattern.test(email)==false) {
+				fail = "   Введите email правильно";
+				labEmail.classList.add('error');
+
+				p.className = "error";
+				p.innerHTML = fail;
+				labEmail.appendChild(p);
+				fail = true;
+			} else {
+				if(document.getElementById('errorText')!=null){
+				document.getElementById('errorText').innerHTML="";}
+				labEmail.classList.remove('error');
+			}
+			if (fail==false){
+				//window.location = "#";
+				var n = document.getElementById("studentName");
+				n.setAttribute("disabled", "disabled");
+				var s = document.getElementById("studentSurname");
+				s.setAttribute("disabled", "disabled");
+				var sn = document.getElementById("studentSecondName");
+				sn.setAttribute("disabled", "disabled");
+				var adr = document.getElementById("studentAddress");
+				adr.setAttribute("disabled", "disabled");
+				var d = document.getElementById("studentDate");
+				d.setAttribute("disabled", "disabled");
+				var t = document.getElementById("studentPhone");
+				t.setAttribute("disabled", "disabled");
+				var e = document.getElementById("studentEmail");
+				e.setAttribute("disabled", "disabled");
+				var g = document.getElementById("grades");
+				g.setAttribute("disabled", "disabled");
+				var ph = document.getElementById("studentPhoto");
+				ph.setAttribute("disabled", "disabled");
+				var sub = document.getElementById('submit')
+				sub.setAttribute("disabled", "disabled");
+				var res = document.getElementById('reset')
+				res.setAttribute("disabled", "disabled");
+				var popupWindow = document.getElementById('popup');
+				popupWindow.classList.add('open');
+
+
+			}
+
+		}
+
+		function validTel(){
+			var form = document.getElementById('form');
+			var fail = false;
+			var tel = form.studentPhone.value;
+			var labTel = document.getElementById('phone');
+			var p = document.createElement("small");
+			p.id = 'errorTextTel';
+			var tel_pattern = /^(()?\d{5}())?(-|\s)?\d{3}(-|\s)?\d{4}$/;
+			if(tel =="" || tel ==" "){
+				labTel.classList.add('error');
+			}
+			if(tel_pattern.test(tel)== false){
+				fail = "Введите телефон правильно";
+				labTel.classList.add('error');
+
+				p.className = "error";
+				p.innerHTML = fail;
+				labTel.appendChild(p);
+			}
+			else {
+				if(document.getElementById('errorTextTel')!=null) {
+				document.getElementById('errorTextTel').innerHTML="";}
+				labTel.classList.remove('error');
+			}
+
+		}
+	</script>
+
+{% endblock %}
+
+
+

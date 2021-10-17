@@ -1,0 +1,25 @@
+{% extends 'polls\base.html' %}
+
+{% block backcolour %} {{ colour }} {% endblock %}
+
+{% block title %} Главная {% endblock %}
+
+{% block content %}
+{% load static %}
+
+<p  class="center_text_big"> {{ welcome }} </p>
+<p class="center_text">Рады приветствовать Вас на сайте Харьковской общеобразовательной школы I-III ступеней №123!</p>
+<div class="learning_process">
+	<h2>Учебный процесс</h2>
+	 <img src="{% static 'pictures/school-2934975_1280.jpg' %}"  class="rightimg" alt="Students" width="615" height="411">
+	 <p>Минздрав назвал некоторые изменения касательно учебного процесса:</p>
+    <ul type="circle">
+    	<li>ученикам 1-4 классов разрешается передвигаться по школе без защитной маски;</li>
+    	<li>в регионах, относящихся к "оранжевому" уровню эпидемиологической опасности, педагогам в процессе преподавания рекомендуется использовать защитные щитки;</li>
+    	<li>учителя, работающие в регионах "желтой" или "зеленой" зоны, должны просто соблюдать безопасную дистанцию;</li>
+    	<li>дезинфекторы и антисептики должны находиться в заведении образования только на входе, в дальнейшем рекомендуется тщательно мыть руки после каждого урока.</li>
+    </ul>
+    <a href="https://112.ua/zdorovie/v-minzdrave-rasskazali-kak-budet-organizovan-uchbenyy-process-v-shkolah-s-1-sentyabrya-547979.html">Ссылка на полную статью</a>
+
+</div>
+{% endblock %}

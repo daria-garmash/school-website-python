@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css' %}" />
+</head>
+<body>
+
+        <h2>Bxoд</h2>
+        {% if user.is_authenticated %}
+        <р>Вы уже выполнили вход.</р>
+        {% else %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="hidden" name="next" value="{{ next }}">
+            <input type="submit" vаluе="Войти">
+        </form>
+        {% endif %}
+</body>
+</html>

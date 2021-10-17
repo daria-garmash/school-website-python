@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Тестирование</title>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="C:/Практические/Веб/css/styles.css">
+</head>
+<body>
+	<header class="header" >
+	<nav >
+				<!--Navigation-->
+		<ul id ="header_nav">
+			<li class="header_logo">
+				<a href="C:\Практические\Веб\SchoolMain.html" class="header_logo-link">
+					<img src="C:\Практические\Веб\Logo1.png" class="header_logo-pic" alt="Logo">
+				</a>
+			</li>
+			<li> <a href="C:\Практические\Веб\Equipment.html" target="_blank" class="header_link"> Средства обучения </a></li>
+			<li> <a href="#!" class="header_link"> Выпускники </a> 
+				<ul>
+					<li><a href="C:\Практические\Веб\BestGraduates.html" target="_blank" class="header_link">Лучшие выпускники</a></li>
+					<li><a href="C:\Практические\Веб\Graduation2020.html" target="_blank" class="header_link">Выпускной 2020</a></li>
+				</ul>
+			</li>
+			<li> <a href="C:\Практические\Веб\Traditions.html" target="_blank" class="header_link"> Наши традиции </a> </li>
+			<li> <a href="#" class="header_link" target="_blank"> Поступление </a>
+				<ul>
+					<li><a href="C:/Практические/Веб/tables.html" class="header_link" target="_blank"> Особенности приема </a></li>
+					<li><a href="C:/Практические/Веб/Form.html" class="header_link"> Электронное заявление </a></li>
+					<li><a href="C:/Практические/Веб/Form.html" class="this_page" target="_blank"> Тестирование </a></li>
+				</ul>
+			</li>
+		</ul>
+				
+	</nav>
+	<div class="wrapper">
+		
+			<div class="header_content">
+			
+			</div>
+	</div>
+
+</header>
+
+<p class="center_text"> Электронное предварительное тестирование</p>
+<p>Ниже расположено предварительное тестирование для поступающих в первые классы нашей школы</p>
+<br>
+<form id="testForm" class="testForm" name="testForm" >
+	<input type="button" name="start" id="start" value="Начать"  onclick="startTest()" >
+	
+	<input type="button" name="showLastResult" id="start" value="Посмотреть результаты предыдущей попытки" onclick="openPopup()">
+	<div id="quest1" class="hiddenQuestion">
+		<p > <b>Вопрос 1: В коробке сидело 8 котят. Сколько коробок нужно еще взять, чтобы рассадить их по 2 в каждую? </p>
+			<p><label><input id="three" type="radio" name="quest1" value="a"> A. 3 </label> </p>
+			<p><label> <input id="four" type="radio" name="quest1" value="b"> Б. 4 </label> </p>
+			<p><label> <input id="five" type="radio" name="quest1" value="c"> В. 5 </label> </p>
+			<p><label> <input id="eight" type="radio" name="quest1" value="d"> Г. 8  </label> </p>
+
+			<input type="button" value="Продолжить" id="continue1" onclick="showNext(document.getElementById('quest2'), document.getElementById('quest1'))">
+	</div>
+	<div id="quest2" class="hiddenQuestion">
+		<p > <b>Вопрос 2: Выбери строку с только гласными буквами. </p>
+			<p><label><input type="radio" name="quest2" value="a"> А. а, м, р, ь, т</label> </p>
+			<p><label><input type="radio" name="quest2" value="b"> Б. д, о, л, и, у </label></p>
+			<p><label><input type="radio" name="quest2" value="c"> В. я, о, и, е, а </label></p>
+			<p><label><input type="radio" name="quest2" value="d"> Г. и, й, а, п, о </label></p>
+
+			<input type="button" value="Продолжить" id="continue2" onclick="showNext(document.getElementById('quest3'), document.getElementById('quest2'))">
+	</div>
+	<div id="quest3" class="hiddenQuestion">
+		<p > <b>Вопрос 3: Можешь найти цвет, которого нет в радуге? </p>
+			<p><label><input type="radio" name="quest3" value="a"> А. синий </label> </p>
+			<p><label><input type="radio" name="quest3" value="b"> Б. розовый </label> </p>
+			<p><label><input type="radio" name="quest3" value="c"> В. фиолетовый </label></p>
+			<p><label><input type="radio" name="quest3" value="d"> Г. зелёный </label> </p>
+
+			<input type="button" value="Продолжить" id="continue3" onclick="showNext(document.getElementById('quest4'), document.getElementById('quest3'))">
+	</div >
+	<div class="hiddenQuestion" id="quest4">
+		<p > <b>Вопрос 4: Какая фигура изображена на рисунке? </p>
+			<img src="C:/Практические/Веб/прямоугольник.jpg">
+			<p><label><input type="radio" name="quest4" value="a"> А. квадрат </label> </p>
+			<p><label><input type="radio" name="quest4" value="b"> Б. прямоугольник </label> </p>
+			<p><label><input type="radio" name="quest4" value="c"> В. треугольник </label> </p>
+			<p><label><input type="radio" name="quest4" value="d"> Г. пятиугольник </label></p>
+
+			<input type="button" value="Продолжить" id="continue4" onclick="showNext(document.getElementById('quest5'), document.getElementById('quest4'))">
+	</div>
+	<div id="quest5" class="hiddenQuestion">
+		<p>Вопрос 5: Если завтра будет среда, какой день недели сегодня?</p>
+		<p><label><input type="radio" name="quest5" value="a"> А. Вторник </label> </p>
+		<p><label><input type="radio" name="quest5" value="b"> Б. Воскресенье </label> </p>
+		<p><label><input type="radio" name="quest5" value="c">В. Четверг </label> </p>
+		<p><label><input type="radio" name="quest5" value="d">Г. Пятница </label></p>
+
+		<input type="button" value="Показать результаты" id="continue5" onclick="showResult()">
+	</div>
+	<div id="results" >
+		
+	</div>
+	
+</form>
+
+<footer>
+ 	<hr>
+ 	<div class="fnav">
+ 	 	<div class="footer_logo">
+			<a href="C:\Практические\Веб\SchoolMain.html" class="footer_logo-link">
+				<img src="C:\Практические\Веб\Logo.png" class="footer_logo-pic" alt="Logo">
+			</a>
+		</div>
+    	
+    	<p>Контакты:<br>
+    	  1234567890<br>
+    	  1112131415<br>
+    	  school123@ukr.net</p>
+
+    	  <div class = "footer_nav">
+					<a href="C:\Практические\Веб\Equipment.html" target="_blank" class="footer_link"> Средства обучения </a>
+					<a href="C:\Практические\Веб\BestGraduates.html" class="footer_link"> Выпускники </a> 
+					<a href="C:\Практические\Веб\Traditions.html" class="footer_link"> Наши традиции </a>
+					<a href="C:/Практические/Веб/tables.html" class="footer_link" target="_blank"> Особенности приема </a>
+			</div>
+	</div>
+    </footer>
+    <div class="popup" id="popup">
+    	<div class="popupBody"> 
+    		<div class="popupContent">
+    			<a class="popupClose" id="close" onclick="closePopup(document.getElementById('close'))">X</a>
+    			<div class="popupTitle">Ответы на предыдущей попытке</div>
+    			<div class="popupText" id="popupText"></div>
+    		</div>
+    	</div>
+
+    </div>
+
+    <script type="text/javascript">
+    
+    	function startTest(){
+    		var start = document.getElementById('quest1');
+    		start.classList.remove('hiddenQuestion');
+    		localStorage.clear();
+    	}
+    	var count = 0;
+    	function openPopup() {
+    		var popupWindow = document.getElementById('popup');
+			popupWindow.classList.add('open');
+			var text = document.getElementById('popupText');
+			if (count == 0){
+				var text1 = document.createElement('p');
+				if (window.localStorage) {
+					text1.innerHTML = localStorage.getItem('rights');
+					var text2 = document.createElement('p');
+					text2.innerHTML = localStorage.getItem('wrongs');
+					text.append(text1);
+					text.append(text2);
+					count++;
+				}
+			}
+    	}
+    	function closePopup(el) {
+    		var popup = document.getElementById('popup');
+    		popup.classList.remove('open');
+    	}
+		var phone = document.getElementById('studentPhone');
+
+    	function showNext(el, this_question) {
+    		el.classList.remove('hiddenQuestion');
+    	}
+
+    	function showResult() {
+    		var result = document.getElementById('results');
+    		var p1 = document.createElement("p");
+    		var p2 = document.createElement("p");
+    		var p3 = document.createElement("p");
+    		var right = 0;
+    		var wrong = 0;
+
+    		var r1 = document.testForm.quest1.value;
+    		var r2 = document.testForm.quest2.value;
+    		var r3 = document.testForm.quest3.value;
+    		var r4 = document.testForm.quest4.value;
+    		var r5 = document.testForm.quest5.value;
+    		//cheking
+    		if (r1 == "a") {
+    			right++;
+    		} else {
+    			wrong++;
+    		}
+    		if (r2 == "c") {
+    			right++;
+    		} else {
+    			wrong++;
+    		}
+    		if (r3 == "b") {
+    			right++;
+    		} else {
+    			wrong++;
+    		}
+    		if (r4 == "b") {
+    			right++;
+    		} else {
+    			wrong++;
+    		}
+    		if (r5 == "a") {
+    			right++;
+    		} else {
+    			wrong++;
+    		}
+    		var rights = "Количество правильных ответов: " + right;
+    		var wrongs = "Количество неправильных ответов: " + wrong;
+    		p1.innerHTML = rights;
+    		if (window.localStorage){
+    		    localStorage.setItem("rights", rights);
+    		}
+    		p2.innerHTML = wrongs;
+    		if (window.localStorage) {
+    			localStorage.setItem("wrongs", wrongs);
+    		}
+    		if (right >= 3) {
+    			p3.innerHTML = "Поздравляем! Вы прошли тест.";
+    		} else {
+    			p3.innerHTML = "К сожалению, тест не пройден :(";
+    		}
+    		result.classList.add('resultBlock');
+    		result.append(p1);
+    		result.append(p2);
+    		result.append(p3);
+
+    	}
+    </script>
+</body>
+</html>

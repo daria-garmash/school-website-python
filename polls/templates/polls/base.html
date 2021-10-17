@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewpoint" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %} {% endblock %}</title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/styles.css' %}" />
+	<style>
+        html {background: {% block backcolour %} {% endblock %}}
+    </style>
+
+</head>
+<body>
+<header class="header_main" >
+	<nav >
+				<!--Navigation-->
+		<ul id ="header_nav">
+			<li class="header_logo">
+				<a href="{%url 'main' %}" class="header_logo-link">
+					<img src="{%static 'pictures\Logo1.png' %}" class="header_logo-pic" alt="Logo">
+				</a>
+			</li>
+			<li> <a href="{%url 'equipment' %}" target="_blank" class="header_link"> Средства обучения </a></li>
+			<li> <a href="#!" class="header_link"> Выпускники </a>
+				<ul>
+					<li><a href="{%url 'best' %}" target="_blank" class="header_link">Лучшие выпускники</a></li>
+					<li><a href="{%url 'graduation' %}" target="_blank" class="header_link">Выпускной 2020</a></li>
+				</ul>
+			</li>
+			<li> <a href="{%url 'traditions' %}" target="_blank" class="header_link"> Наши традиции </a> </li>
+			<li> <a href="#!" class="header_link" target="_blank"> Поступление </a>
+				<ul>
+					<li><a href="{%url 'table' %}" class="header_link" target="_blank"> Принятые заявления </a></li>
+					<li><a href="{%url 'form' %}" class="header_link" target="_blank"> Электронное заявление </a></li>
+				</ul>
+			</li>
+
+		</ul>
+
+	</nav>
+	<div class="wrapper">
+
+		<div class="header_content">
+			<h1 class = "header_h1">Харьковская общеобразовательная школа №123</h1>
+
+			<h2 class="header_h2">Официальный сайт Харьковской общеобразовательной школы №123</h2>
+
+			<p class="header_contacts">Контактные телефоны:<br>
+				1234567890<br>
+				1112131415<br>
+				Email школы:<br>
+				school123@ukr.net</p>
+		</div>
+	</div>
+
+</header>
+
+
+{% block content %} {% endblock %}
+
+
+ <footer>
+ 	<hr>
+ 	<div class="fnav">
+ 	 	<div class="footer_logo">
+			<a href="#" class="footer_logo-link">
+				<img src="{%static 'pictures\Logo.png' %}" class="footer_logo-pic" alt="Logo">
+			</a>
+		</div>
+
+    	<p>Контакты:<br>
+    	  1234567890<br>
+    	  1112131415<br>
+    	  school123@ukr.net</p>
+
+    	  <div class = "footer_nav">
+					<a href="{%url 'equipment' %}" target="_blank" class="footer_link"> Средства обучения </a>
+					<a href="{%url 'best' %}" class="footer_link"> Выпускники </a>
+					<a href="{%url 'traditions' %}" class="footer_link"> Наши традиции </a>
+					<a href="{%url 'table' %}" class="footer_link" target="_blank"> Особенности приема </a>
+			</div>
+	</div>
+    </footer>
+</body>
+</html>

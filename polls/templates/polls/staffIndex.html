@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Staff events</title>
+</head>
+<body>
+    <h2>Мероприятия, проводимые работником школы  {{ responsibleStaff }}</h2>
+
+    {% for event in events %}
+        <div>
+            <h4>{{ event.name }} </h4>
+            <p> {{ event.description }} </p>
+            <p> Дата и время проведения: {{ event.date|date:"d.m.Y H: i:s"}}</p>
+        </div>
+{% endfor %}
+
+</body>
+</html>

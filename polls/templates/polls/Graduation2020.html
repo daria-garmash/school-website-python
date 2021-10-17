@@ -1,0 +1,23 @@
+{% extends 'polls\base.html' %}
+{% block title %} Выпускной 2020 {% endblock %}
+
+{% block content %}
+{% load static %}
+<p class="center_text_big">Выпускной 2020</p>
+<p class="center_text">25.06.2020 в Харьковской общеобразовательной школе I-III ступеней №123 прошел выпускной вечер 11-А и 11-Б классов. Поздравляем выпускников!</p>
+
+<div class="photos">
+	<img src="{% static 'pictures/graduation-2308406_960_720.jpg' %}" width="45%" height="40%">
+	<img src="{% static 'pictures/graduation-2038866_1280.jpg' %}" width="45%" height="40%">
+
+</div>
+<div class="photos">
+	<img src="{% static 'pictures/interior-710042_1280.jpg' %}" width="45%" height="40%">
+	<img src="{% static 'pictures/pexels-photo-590485.jpeg' %}" width="45%" height="40%">
+</div>
+<div class="photos">
+	<img src="{% static 'pictures/youth-841854_1280.jpg' %}" width="45%" height="40%">
+</div>
+
+
+{% endblock %}
